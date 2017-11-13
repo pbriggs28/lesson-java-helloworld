@@ -7,20 +7,20 @@ public class AppRunner {
 		Robot robotTwo = new Robot("The Dodo", false, 300, 8);
 		Robot robotThree = new Robot("Downasaur", true, 285, 12);
 		Robot robotFour = new Robot("Cowsncowsncowsncows", true, 425, 8);
-		
-		moveRobot(robotOne.name, robotOne.enabled, robotOne.feetPerSec);
-		moveRobot(robotTwo.name, robotTwo.enabled, robotTwo.feetPerSec);
-		moveRobot(robotThree.name, robotThree.enabled, robotThree.feetPerSec);
-		moveRobot(robotFour.name, robotFour.enabled, robotFour.feetPerSec);
+
+		moveRobot(robotOne);
+		moveRobot(robotTwo);
+		moveRobot(robotThree);
+		moveRobot(robotFour);
 		
 		judgeCompetition(robotOne.name, robotOne.score, robotTwo.name, robotTwo.score, robotThree.name, robotThree.score, robotFour.name, robotFour.score);
 	}
 	
-	private void moveRobot(String robotName, boolean enabled, int feetPerSec) {
-		if(enabled == true) {
-			System.out.println(robotName + " is moving forwards at " + feetPerSec + " feet per second.");			
+	private void moveRobot(Robot robot) {
+		if(robot.enabled == true) {
+			System.out.println(robot.name + " is moving forwards at " + robot.feetPerSec + " feet per second.");			
 		} else {
-			System.out.println(robotName + " is disabled");
+			System.out.println(robot.name + " is disabled");
 		}
 	}
 	
