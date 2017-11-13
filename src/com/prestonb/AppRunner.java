@@ -15,13 +15,7 @@ public class AppRunner {
 		moveRobot(robotOneName, robotOneEnabled, robotOneFeetPerSec);
 		moveRobot(robotTwoName, robotTwoEnabled, robotTwoFeetPerSec);
 		
-		if(robotOneScore > robotTwoScore) {
-			System.out.println(robotOneName + " won!");
-		} else if(robotTwoScore > robotOneScore) {
-			System.out.println(robotTwoName + " won!");
-		} else if(robotTwoScore == robotOneScore) {
-			System.out.println("It was a tie!");
-		}
+		judgeCompetition(robotOneName, robotOneScore, robotTwoName, robotTwoScore);
 	}
 	
 	private void moveRobot(String robotName, boolean enabled, int feetPerSec) {
@@ -29,6 +23,16 @@ public class AppRunner {
 			System.out.println(robotName + " is moving forwards at " + feetPerSec + " feet per second.");			
 		} else {
 			System.out.println(robotName + " is disabled");
+		}
+	}
+	
+	private void judgeCompetition(String robotOneName, int robotOneScore, String robotTwoName, int robotTwoScore) {
+		if(robotOneScore > robotTwoScore) {
+			System.out.println(robotOneName + " won!");
+		} else if(robotTwoScore > robotOneScore) {
+			System.out.println(robotTwoName + " won!");
+		} else if(robotTwoScore == robotOneScore) {
+			System.out.println("It was a tie!");
 		}
 	}
 }
