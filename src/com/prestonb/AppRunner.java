@@ -7,12 +7,16 @@ public class AppRunner {
 		Robot robotTwo = new Robot("The Dodo", false, 300, 8);
 		Robot robotThree = new Robot("Downasaur", true, 285, 12);
 		Robot robotFour = new Robot("Cowsncowsncowsncows", true, 425, 8);
+		Robot robotFive = new Robot("Pomelo Pummeler", true, 400, 16);
+		Robot robotSix = new Robot("Misfire", true, 800, 20);
 		
-		Robot[] robotList = new Robot[4];
+		Robot[] robotList = new Robot[6];
 		robotList[0] = robotOne;
 		robotList[1] = robotTwo;
 		robotList[2] = robotThree;
 		robotList[3] = robotFour;
+		robotList[4] = robotFive;
+		robotList[5] = robotSix;
 
 		moveAllRobots(robotList);
 		
@@ -47,6 +51,8 @@ public class AppRunner {
 			}
 		}
 		
+		System.out.println();
+		System.out.println("Judging...");
 		System.out.println(winningRobot.name + " won with a score of: " + highScore);
 	}
 }
