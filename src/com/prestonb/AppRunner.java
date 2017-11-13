@@ -16,7 +16,7 @@ public class AppRunner {
 
 		moveAllRobots(robotList);
 		
-		judgeCompetition(robotOne, robotTwo, robotThree, robotFour);
+		judgeCompetition(robotList);
 	}
 	
 	private void moveAllRobots(Robot[] robotList) {
@@ -34,18 +34,19 @@ public class AppRunner {
 		}
 	}
 	
-	private void judgeCompetition(Robot robotOne, Robot robotTwo, Robot robotThree, Robot robotFour) {
+	private void judgeCompetition(Robot[] robotList) {
+		Robot winningRobot = null;
+		int highScore = 0;
 		
-		if(robotOne.score > robotTwo.score && robotOne.score > robotThree.score && robotOne.score > robotFour.score) {
-			System.out.println(robotOne.name + " won!");
-		} else if(robotTwo.score > robotOne.score && robotTwo.score > robotThree.score && robotTwo.score > robotFour.score) {
-			System.out.println(robotTwo.name + " won!");
-		} else if(robotThree.score > robotOne.score && robotThree.score > robotTwo.score && robotThree.score > robotFour.score) {
-			System.out.println(robotThree.name + " won!");
-		} else if(robotFour.score > robotOne.score && robotFour.score > robotTwo.score && robotFour.score > robotThree.score) {
-			System.out.println(robotFour.name + " won!");
-		} else {
-			System.out.println("It was a tie!");
+		for (int i = 0; i < robotList.length; i++) {
+			Robot robot = robotList[i];
+			
+			if(robot.score > highScore) {
+				highScore = robot.score;
+				winningRobot = robot;
+			}
 		}
+		
+		System.out.println(winningRobot.name + " won with a score of: " + highScore);
 	}
 }
