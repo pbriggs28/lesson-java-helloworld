@@ -12,17 +12,8 @@ public class AppRunner {
 		boolean robotOneEnabled = true;
 		boolean robotTwoEnabled = false;
 
-		if(robotOneEnabled) {
-			System.out.println("Robot one is moving forwards at " + robotOneFeetPerSec + " feet per second.");			
-		} else {
-			System.out.println("Robot one is disabled");
-		}
-
-		if(robotTwoEnabled) {
-			System.out.println("Robot two is moving forwards at " + robotTwoFeetPerSec + " feet per second.");			
-		} else {
-			System.out.println("Robot two is disabled");
-		}
+		moveRobot(robotOneName, robotOneEnabled, robotOneFeetPerSec);
+		moveRobot(robotTwoName, robotTwoEnabled, robotTwoFeetPerSec);
 		
 		if(robotOneScore > robotTwoScore) {
 			System.out.println(robotOneName + " won!");
@@ -30,6 +21,14 @@ public class AppRunner {
 			System.out.println(robotTwoName + " won!");
 		} else if(robotTwoScore == robotOneScore) {
 			System.out.println("It was a tie!");
+		}
+	}
+	
+	private void moveRobot(String robotName, boolean enabled, int feetPerSec) {
+		if(enabled == true) {
+			System.out.println(robotName + " is moving forwards at " + feetPerSec + " feet per second.");			
+		} else {
+			System.out.println(robotName + " is disabled");
 		}
 	}
 }
