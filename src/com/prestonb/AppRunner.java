@@ -14,9 +14,9 @@ public class AppRunner {
 		System.out.println(robotTwoName + " score: " + robotTwoScore);
 
 		if(robotOneScore > robotTwoScore) {
-			System.out.println("Robot one won!");
+			System.out.println(robotOneName + " won!");
 		} else if(robotTwoScore > robotOneScore) {
-			System.out.println("Robot two won!");
+			System.out.println(robotTwoName + " won!");
 		} else if(robotTwoScore == robotOneScore) {
 			System.out.println("It was a tie!");
 		}
