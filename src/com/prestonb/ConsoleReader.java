@@ -10,19 +10,30 @@ public class ConsoleReader {
 	
 	public static ArrayList<Robot> promptUserForRobotList() {
 		ArrayList<Robot> robotList = new ArrayList<>();
-		try {
-			InputStreamReader consoleInput = new InputStreamReader(System.in);
-			BufferedReader br = new BufferedReader(consoleInput);
-			System.out.println("Robot name: ");
-			String input = br.readLine();
-			Robot robot = createRobotWithRandomStats(input);
-			robotList.add(robot);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		InputStreamReader consoleInput = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(consoleInput);
+		
+		int numbOfRobotsToEnter = 4;
+		for (int i = 0; i < numbOfRobotsToEnter; i++) {
+			Robot robot = promptUserForSingleRobot(br);
+			robotList.add(robot);			
 		}
 		
 		return robotList;
+	}
+
+	public static Robot promptUserForSingleRobot(BufferedReader br) {
+		Robot robot;
+		try {
+			System.out.println("Robot name: ");
+			String input = br.readLine();
+			robot = createRobotWithRandomStats(input);
+		} catch (IOException e) {
+			e.printStackTrace();
+			robot = createRobotWithRandomStats("ERROR"); 
+		}
+		
+		return robot;
 	}
 	
 	private static Robot createRobotWithRandomStats(String name) {

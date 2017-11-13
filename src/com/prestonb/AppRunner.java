@@ -11,6 +11,8 @@ public class AppRunner {
 	}
 	
 	private void moveAllRobots(ArrayList<Robot> robotList) {
+		System.out.println();
+		System.out.println("===================================== Moving Robots");
 		for (Robot robot : robotList) {
 			moveRobot(robot);
 		}
@@ -36,7 +38,7 @@ public class AppRunner {
 		}
 		
 		System.out.println();
-		System.out.println("Judging...");
+		System.out.println("===================================== Judging");
 		System.out.println(winningRobot.name + " won with a score of: " + highScore);
 	}
 }
