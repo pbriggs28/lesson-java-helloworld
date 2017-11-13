@@ -3,33 +3,37 @@ package com.prestonb;
 public class AppRunner {
 
 	public void run() {
-		String robotOneName = "Hummingbird";
-		String robotTwoName = "The Dodo";
-		String robotThreeName = "Downasaur";
-		String robotFourName = "Cowsncowsncowsncows";
-		int robotOneScore = 200;
-		int robotTwoScore = 300;
-		int robotThreeScore = 285;
-		int robotFourScore = 425;
-//		int robotOneScore = 200;
-//		int robotTwoScore = 200;
-//		int robotThreeScore = 200;
-//		int robotFourScore = 200;
-		int robotOneFeetPerSec = 5;
-		int robotTwoFeetPerSec = 8;
-		int robotThreeFeetPerSec = 12;
-		int robotFourFeetPerSec = 8;
-		boolean robotOneEnabled = true;
-		boolean robotTwoEnabled = false;
-		boolean robotThreeEnabled = true;
-		boolean robotFourEnabled = true;
-
-		moveRobot(robotOneName, robotOneEnabled, robotOneFeetPerSec);
-		moveRobot(robotTwoName, robotTwoEnabled, robotTwoFeetPerSec);
-		moveRobot(robotThreeName, robotThreeEnabled, robotThreeFeetPerSec);
-		moveRobot(robotFourName, robotFourEnabled, robotFourFeetPerSec);
+		Robot robotOne = new Robot();
+		Robot robotTwo = new Robot();
+		Robot robotThree = new Robot();
+		Robot robotFour = new Robot();
 		
-		judgeCompetition(robotOneName, robotOneScore, robotTwoName, robotTwoScore, robotThreeName, robotThreeScore, robotFourName, robotFourScore);
+		robotOne.name = "Hummingbird";
+		robotOne.score = 200;
+		robotOne.feetPerSec = 5;
+		robotOne.enabled = true;
+		
+		robotTwo.name = "The Dodo";
+		robotTwo.score = 300;
+		robotTwo.feetPerSec = 8;
+		robotTwo.enabled = false;
+		
+		robotThree.name = "Downasaur";
+		robotThree.score = 285;
+		robotThree.feetPerSec = 12;
+		robotThree.enabled = true;
+		
+		robotFour.name = "Cowsncowsncowsncows";
+		robotFour.score = 425;
+		robotFour.feetPerSec = 8;
+		robotFour.enabled = true;
+		
+		moveRobot(robotOne.name, robotOne.enabled, robotOne.feetPerSec);
+		moveRobot(robotTwo.name, robotTwo.enabled, robotTwo.feetPerSec);
+		moveRobot(robotThree.name, robotThree.enabled, robotThree.feetPerSec);
+		moveRobot(robotFour.name, robotFour.enabled, robotFour.feetPerSec);
+		
+		judgeCompetition(robotOne.name, robotOne.score, robotTwo.name, robotTwo.score, robotThree.name, robotThree.score, robotFour.name, robotFour.score);
 	}
 	
 	private void moveRobot(String robotName, boolean enabled, int feetPerSec) {
