@@ -1,5 +1,7 @@
 package com.prestonb;
 
+import java.util.ArrayList;
+
 public class AppRunner {
 
 	public void run() {
@@ -10,22 +12,21 @@ public class AppRunner {
 		Robot robotFive = new Robot("Pomelo Pummeler", true, 400, 16);
 		Robot robotSix = new Robot("Misfire", true, 800, 20);
 		
-		Robot[] robotList = new Robot[6];
-		robotList[0] = robotOne;
-		robotList[1] = robotTwo;
-		robotList[2] = robotThree;
-		robotList[3] = robotFour;
-		robotList[4] = robotFive;
-		robotList[5] = robotSix;
+		ArrayList<Robot> robotList = new ArrayList<>();
+		robotList.add(robotOne);
+		robotList.add(robotTwo);
+		robotList.add(robotThree);
+		robotList.add(robotFour);
+		robotList.add(robotFive);
+		robotList.add(robotSix);
 
 		moveAllRobots(robotList);
 		
 		judgeCompetition(robotList);
 	}
 	
-	private void moveAllRobots(Robot[] robotList) {
-		for (int i = 0; i < robotList.length; i++) {
-			Robot robot = robotList[i];
+	private void moveAllRobots(ArrayList<Robot> robotList) {
+		for (Robot robot : robotList) {
 			moveRobot(robot);
 		}
 	}
@@ -38,13 +39,11 @@ public class AppRunner {
 		}
 	}
 	
-	private void judgeCompetition(Robot[] robotList) {
+	private void judgeCompetition(ArrayList<Robot> robotList) {
 		Robot winningRobot = null;
 		int highScore = 0;
 		
-		for (int i = 0; i < robotList.length; i++) {
-			Robot robot = robotList[i];
-			
+		for (Robot robot : robotList) {
 			if(robot.score > highScore) {
 				highScore = robot.score;
 				winningRobot = robot;
