@@ -3,30 +3,10 @@ package com.prestonb;
 public class AppRunner {
 
 	public void run() {
-		Robot robotOne = new Robot();
-		Robot robotTwo = new Robot();
-		Robot robotThree = new Robot();
-		Robot robotFour = new Robot();
-		
-		robotOne.name = "Hummingbird";
-		robotOne.score = 200;
-		robotOne.feetPerSec = 5;
-		robotOne.enabled = true;
-		
-		robotTwo.name = "The Dodo";
-		robotTwo.score = 300;
-		robotTwo.feetPerSec = 8;
-		robotTwo.enabled = false;
-		
-		robotThree.name = "Downasaur";
-		robotThree.score = 285;
-		robotThree.feetPerSec = 12;
-		robotThree.enabled = true;
-		
-		robotFour.name = "Cowsncowsncowsncows";
-		robotFour.score = 425;
-		robotFour.feetPerSec = 8;
-		robotFour.enabled = true;
+		Robot robotOne = new Robot("Hummingbird", true, 200, 5);
+		Robot robotTwo = new Robot("The Dodo", false, 300, 8);
+		Robot robotThree = new Robot("Downasaur", true, 285, 12);
+		Robot robotFour = new Robot("Cowsncowsncowsncows", true, 425, 8);
 		
 		moveRobot(robotOne.name, robotOne.enabled, robotOne.feetPerSec);
 		moveRobot(robotTwo.name, robotTwo.enabled, robotTwo.feetPerSec);
