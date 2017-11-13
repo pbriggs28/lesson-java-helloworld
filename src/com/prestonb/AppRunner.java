@@ -13,7 +13,7 @@ public class AppRunner {
 		moveRobot(robotThree);
 		moveRobot(robotFour);
 		
-		judgeCompetition(robotOne.name, robotOne.score, robotTwo.name, robotTwo.score, robotThree.name, robotThree.score, robotFour.name, robotFour.score);
+		judgeCompetition(robotOne, robotTwo, robotThree, robotFour);
 	}
 	
 	private void moveRobot(Robot robot) {
@@ -24,20 +24,16 @@ public class AppRunner {
 		}
 	}
 	
-	private void judgeCompetition(
-			String robotOneName, int robotOneScore, 
-			String robotTwoName, int robotTwoScore,
-			String robotThreeName, int robotThreeScore, 
-			String robotFourName, int robotFourScore) {
+	private void judgeCompetition(Robot robotOne, Robot robotTwo, Robot robotThree, Robot robotFour) {
 		
-		if(robotOneScore > robotTwoScore && robotOneScore > robotThreeScore && robotOneScore > robotFourScore) {
-			System.out.println(robotOneName + " won!");
-		} else if(robotTwoScore > robotOneScore && robotTwoScore > robotThreeScore && robotTwoScore > robotFourScore) {
-			System.out.println(robotTwoName + " won!");
-		} else if(robotThreeScore > robotOneScore && robotThreeScore > robotTwoScore && robotThreeScore > robotFourScore) {
-			System.out.println(robotThreeName + " won!");
-		} else if(robotFourScore > robotOneScore && robotFourScore > robotTwoScore && robotFourScore > robotThreeScore) {
-			System.out.println(robotFourName + " won!");
+		if(robotOne.score > robotTwo.score && robotOne.score > robotThree.score && robotOne.score > robotFour.score) {
+			System.out.println(robotOne.name + " won!");
+		} else if(robotTwo.score > robotOne.score && robotTwo.score > robotThree.score && robotTwo.score > robotFour.score) {
+			System.out.println(robotTwo.name + " won!");
+		} else if(robotThree.score > robotOne.score && robotThree.score > robotTwo.score && robotThree.score > robotFour.score) {
+			System.out.println(robotThree.name + " won!");
+		} else if(robotFour.score > robotOne.score && robotFour.score > robotTwo.score && robotFour.score > robotThree.score) {
+			System.out.println(robotFour.name + " won!");
 		} else {
 			System.out.println("It was a tie!");
 		}
