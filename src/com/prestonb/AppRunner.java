@@ -12,8 +12,13 @@ public class AppRunner {
 		boolean robotOneEnabled = true;
 		boolean robotTwoEnabled = false;
 
-		System.out.println("Robot one is moving forwards at " + robotOneFeetPerSec + " feet per second.");
-		System.out.println("Robot two is moving forwards at " + robotOneFeetPerSec + " feet per second.");
+		if(robotOneEnabled) {
+			System.out.println("Robot one is moving forwards at " + robotOneFeetPerSec + " feet per second.");
+		}
+
+		if(robotTwoEnabled) {
+			System.out.println("Robot two is moving forwards at " + robotTwoFeetPerSec + " feet per second.");
+		}
 		
 		if(robotOneScore > robotTwoScore) {
 			System.out.println(robotOneName + " won!");
