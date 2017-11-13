@@ -5,23 +5,8 @@ import java.util.ArrayList;
 public class AppRunner {
 
 	public void run() {
-		Robot robotOne = new Robot("Hummingbird", true, 200, 5);
-		Robot robotTwo = new Robot("The Dodo", false, 300, 8);
-		Robot robotThree = new Robot("Downasaur", true, 285, 12);
-		Robot robotFour = new Robot("Cowsncowsncowsncows", true, 425, 8);
-		Robot robotFive = new Robot("Pomelo Pummeler", true, 400, 16);
-		Robot robotSix = new Robot("Misfire", true, 800, 20);
-		
-		ArrayList<Robot> robotList = new ArrayList<>();
-		robotList.add(robotOne);
-		robotList.add(robotTwo);
-		robotList.add(robotThree);
-		robotList.add(robotFour);
-		robotList.add(robotFive);
-		robotList.add(robotSix);
-
+		ArrayList<Robot> robotList = ConsoleReader.promptUserForRobotList();
 		moveAllRobots(robotList);
-		
 		judgeCompetition(robotList);
 	}
 	
