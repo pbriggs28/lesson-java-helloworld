@@ -7,13 +7,23 @@ public class AppRunner {
 		Robot robotTwo = new Robot("The Dodo", false, 300, 8);
 		Robot robotThree = new Robot("Downasaur", true, 285, 12);
 		Robot robotFour = new Robot("Cowsncowsncowsncows", true, 425, 8);
+		
+		Robot[] robotList = new Robot[4];
+		robotList[0] = robotOne;
+		robotList[1] = robotTwo;
+		robotList[2] = robotThree;
+		robotList[3] = robotFour;
 
-		moveRobot(robotOne);
-		moveRobot(robotTwo);
-		moveRobot(robotThree);
-		moveRobot(robotFour);
+		moveAllRobots(robotList);
 		
 		judgeCompetition(robotOne, robotTwo, robotThree, robotFour);
+	}
+	
+	private void moveAllRobots(Robot[] robotList) {
+		for (int i = 0; i < robotList.length; i++) {
+			Robot robot = robotList[i];
+			moveRobot(robot);
+		}
 	}
 	
 	private void moveRobot(Robot robot) {
