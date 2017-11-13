@@ -12,11 +12,14 @@ public class ConsoleReader {
 		ArrayList<Robot> robotList = new ArrayList<>();
 		InputStreamReader consoleInput = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(consoleInput);
-		
-		int numbOfRobotsToEnter = 4;
-		for (int i = 0; i < numbOfRobotsToEnter; i++) {
+		boolean quit = false;
+
+		System.out.println("===================================== Entering Robots");
+		while (quit == false) {
 			Robot robot = promptUserForSingleRobot(br);
 			robotList.add(robot);			
+
+			quit = isUserDoneEnteringRobots(br);
 		}
 		
 		return robotList;
@@ -46,5 +49,28 @@ public class ConsoleReader {
 		Robot robot = new Robot(name, enabled, score, speed);
 		System.out.println("Created robot... Name: " + robot.name + ". Enabled: " + robot.enabled + ". Score: " + robot.score + ". Speed: " + robot.feetPerSec);
 		return robot;
+	}
+	
+	private static boolean isUserDoneEnteringRobots(BufferedReader br) {
+		boolean done;
+		
+		try {
+			System.out.println("Enter more robots?");
+			String input = br.readLine();
+			if(input.equals("Yes")) {
+				System.out.println("Input [" + input + "] equals [Yes]. Entering another robot..");
+				done = false;
+			} else {
+				System.out.println("Input [" + input + "] does not equal [Yes]. Done entering robots..");
+				done = true;
+			}
+		} catch (IOException e) {
+			System.out.println("ERROR: Exception occurred reading input:");
+			e.printStackTrace();
+			done = true;
+			System.out.println("Done entering robots..");
+		}
+		
+		return done;
 	}
 }
